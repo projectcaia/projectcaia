@@ -1,8 +1,6 @@
 import os
 import logging
 from datetime import datetime
-import schedule
-import time
 import requests
 import yfinance as yf
 # Placeholder imports for Notion and Google APIs
@@ -96,13 +94,14 @@ def night_routine():
     send_email(report)
 
 
-def schedule_jobs():
-    schedule.every().day.at("09:10").do(morning_routine)
-    schedule.every().day.at("23:10").do(night_routine)
-    while True:
-        schedule.run_pending()
-        time.sleep(30)
+def cloud_handler(request=None):
+    """Entry point for cloud functions or serverless jobs."""
+    logging.info("Cloud handler invoked")
+    morning_routine()
+    night_routine()
+    return "\u2705 \uc790\ub3d9\ud654 \ub8e8\ud2f4 \uc2e4\ud589\ub428"
+
 
 if __name__ == "__main__":
     logging.info("Starting FGPT automation...")
-    schedule_jobs()
+    cloud_handler()

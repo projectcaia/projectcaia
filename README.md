@@ -18,4 +18,5 @@ The alert system references several public sites for price and news data:
 - Bloomberg
 - Yonhap News
 
-Schedules can be customised in each script using the `schedule` library.
+Both scripts expose a `cloud_handler` function so they can run on serverless
+platforms such as Cloud Functions or Railway.

@@ -1,4 +1,3 @@
-schedule
 requests
 yfinance
 notion-client

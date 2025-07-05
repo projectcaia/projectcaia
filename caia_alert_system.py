@@ -1,8 +1,7 @@
 import os
 import logging
 from datetime import datetime
-import schedule
-import time
+
 import requests
 import yfinance as yf
 from bs4 import BeautifulSoup
@@ -256,14 +255,13 @@ def monitor(session_name):
         logging.info("No alert conditions met.")
 
 
-def schedule_jobs():
-    schedule.every().day.at("09:05").do(monitor, session_name="regular")
-    schedule.every().day.at("18:05").do(monitor, session_name="night")
-    while True:
-        schedule.run_pending()
-        time.sleep(30)
+def cloud_handler(request=None):
+    """Entry point for cloud functions or serverless jobs."""
+    logging.info("Cloud handler invoked")
+    monitor(session_name="cloud")
+    return "\u2705 \uc790\ub3d9\ud654 \ub8e8\ud2f4 \uc2e4\ud589\ub428"
 
 
 if __name__ == "__main__":
     logging.info("Starting Caia alert system...")
-    schedule_jobs()
+    cloud_handler()
