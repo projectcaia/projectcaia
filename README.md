@@ -9,8 +9,6 @@ This repository contains example implementations for automated routines in the F
 
 ### Data sources
 
-The alert system references several public sites for price and news data.
-
 - [Naver Finance](https://finance.naver.com)
 - [Investing.com](https://www.investing.com)
 - [Yahoo Finance](https://finance.yahoo.com)
