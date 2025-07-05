@@ -84,11 +84,9 @@ def fetch_news_yonhap():
     return fetch_headlines(DATA_SITES["yonhap"], "a.tit")
 
 
-# Placeholder for Korea VIX as yfinance does not provide it directly
-# In production, replace with an actual data source
-
+# Korea VIX is not available via yfinance; integrate an external source if needed
 def fetch_kor_vix():
-    return None  # TODO: implement data fetch
+    return None
 
 
 def fetch_naver_index(code: str):

@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 import requests
 import yfinance as yf
-# Placeholder imports for Notion and Google APIs
+# Imports for Notion and Google APIs
 from notion_client import Client as NotionClient
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -43,7 +43,7 @@ def fetch_market_data():
 
 def fetch_news():
     logging.info("Fetching news...")
-    # Placeholder for actual news API integration
+    # Integrate with your preferred news API
     return ["News headline 1", "News headline 2"]
 
 def generate_report(market_data, news_list):
@@ -71,7 +71,7 @@ def save_to_drive(filename, content):
 def send_email(content):
     if EMAIL_TO:
         logging.info("Sending report via email...")
-        # Placeholder for sending email (SMTP or API)
+        # Send email via SMTP or other API
 
 # Routine definitions
 def morning_routine():

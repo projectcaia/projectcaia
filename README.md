@@ -17,4 +17,4 @@ This repository contains example implementations for automated routines in the F
 - [Yonhap News](https://www.yna.co.kr)
 
 Both scripts expose a `cloud_handler` function so they can run on serverless platforms such as Cloud Functions or Railway.
-Schedules can be customised in each script using the `schedule` library.
+Schedules can be customised in each script using the `schedule` library. The default UMA/Reflex schedule triggers at 23:30, 03:30, 09:30 and 13:30 each day.
