@@ -11,12 +11,11 @@ This repository contains example implementations for automated routines in the F
 
 The alert system references several public sites for price and news data:
 
-- Naver Finance
-- Investing.com
-- Yahoo Finance
-- CME Group
-- Bloomberg
-- Yonhap News
+- [Naver Finance](https://finance.naver.com/)
+- [Investing.com](https://www.investing.com/)
+- [Yahoo Finance](https://finance.yahoo.com/)
+- [CME Group](https://www.cmegroup.com/)
+- [Bloomberg](https://www.bloomberg.com/)
+- [Yonhap News](https://www.yna.co.kr/)
 
-Both scripts expose a `cloud_handler` function so they can run on serverless
-platforms such as Cloud Functions or Railway.
+Both scripts expose a `cloud_handler` function so they can run on serverless platforms such as Cloud Functions or Railway.

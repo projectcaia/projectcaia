@@ -1,11 +1,9 @@
 import os
 import logging
 from datetime import datetime
-
 import requests
 import yfinance as yf
 from bs4 import BeautifulSoup
-
 from notion_client import Client as NotionClient
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -259,7 +257,7 @@ def cloud_handler(request=None):
     """Entry point for cloud functions or serverless jobs."""
     logging.info("Cloud handler invoked")
     monitor(session_name="cloud")
-    return "\u2705 \uc790\ub3d9\ud654 \ub8e8\ud2f4 \uc2e4\ud589\ub428"
+    return "✅ 자동화 루틴 실행됨"
 
 
 if __name__ == "__main__":
