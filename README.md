@@ -16,4 +16,4 @@ This repository contains example implementations for automated routines in the F
 - [Bloomberg](https://www.bloomberg.com)
 - [Yonhap News](https://www.yna.co.kr)
 
-Both scripts expose a `cloud_handler` function so they can run on serverless platforms such as Cloud Functions or Railway. Schedules should be configured in your cloud platform. The default UMA/Reflex schedule triggers at 23:30, 03:30, 09:30 and 13:30 each day.
+Both scripts expose a `cloud_handler` function so they can run on serverless platforms such as Cloud Functions or Railway. Configure a schedule in your provider to execute them automatically. The UMA/Reflex default times are 23:30, 03:30, 09:30 and 13:30 each day.
