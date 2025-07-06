@@ -14,7 +14,12 @@ Reports and alerts can be delivered to:
 - **Notion**
 - **bochungki** (custom webhook or future expansion)
 
-Credentials such as `NOTION_TOKEN`, `NOTION_PAGE_ID`, Google service account JSON and email settings should be provided via environment variables.
+### Environment variables
+Set the following variables so the scripts can authenticate with external services:
+- `NOTION_TOKEN`, `NOTION_PAGE_ID`: credentials for posting to Notion
+- `GOOGLE_CREDS_JSON`: path to the Google service account JSON for Drive uploads
+- `EMAIL_TO`: destination address for email alerts
+
 
 ## Scripts
 - `fgpt_automation.py`: Runs the morning and night routines to gather data and upload reports.
