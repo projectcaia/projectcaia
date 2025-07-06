@@ -1,6 +1,6 @@
 # FGPT Strategy Automation
 
-This repository contains an example implementation of an automated routine for the FGPT strategy system. The scripts collect market data and news, generate reports, and back them up to external services. Scheduling is performed twice daily (morning and night) using the `schedule` library.
+FGPT 전략 시스템 자동화 루틴 예시 저장소입니다. 시장 데이터와 뉴스를 수집해 경보와 보고서를 생성하며, 이메일·Google Drive·Notion·bochungki(확장 알림)로 전송합니다. 기본 스케줄은 하루 두 차례(09:10, 23:10)이며 `schedule` 라이브러리로 자유롭게 조정할 수 있습니다.
 
 ## FGPT 감시 자동화 구조
 - **센티넬**: 실시간 지표를 감시하여 이상 변동을 탐지합니다.
@@ -8,17 +8,17 @@ This repository contains an example implementation of an automated routine for t
 - **경보 루틴**: 레벨별 경보 메시지를 만들어 여러 채널로 발송합니다.
 
 ## 알림 채널
-Reports and alerts can be delivered to:
+Reports and alerts can be delivered through the following channels:
 - **Email**
 - **Google Drive**
 - **Notion**
 - **bochungki** (custom webhook or future expansion)
 
 ### Environment variables
-Set the following variables so the scripts can authenticate with external services:
-- `NOTION_TOKEN`, `NOTION_PAGE_ID`: credentials for posting to Notion
-- `GOOGLE_CREDS_JSON`: path to the Google service account JSON for Drive uploads
-- `EMAIL_TO`: destination address for email alerts
+Set these variables so the scripts can authenticate with external services:
+- `NOTION_TOKEN`, `NOTION_PAGE_ID` – Notion credentials
+- `GOOGLE_CREDS_JSON` – Google Drive service account key
+- `EMAIL_TO` – address for email alerts
 
 
 ## Scripts
