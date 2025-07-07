@@ -1,8 +1,12 @@
 # FGPT Strategy Automation
 
-FGPT 전략 시스템 자동화 루틴 예시 저장소입니다. 시장 데이터와 뉴스를 수집해 경보와 보고서를 생성하며, 이메일·Google Drive·Notion·bochungki(확장 알림)로 전송합니다. 기본 스케줄은 하루 두 차례(09:10, 23:10)이며 `schedule` 라이브러리로 자유롭게 조정할 수 있습니다.
+FGPT 전략 시스템 자동화 예시 저장소입니다.  
+시장 데이터와 뉴스를 수집, 경보/리포트 파일을 이메일(Google Drive·Gmail)로 전송/저장합니다.  
+기본 스케줄은 하루 두 차례(09:10, 23:10)이며, `schedule` 라이브러리로 자유롭게 변경할 수 있습니다.
 
-필요한 패키지는 다음 명령으로 설치합니다.
+```bash
+pip install -r requirements.txt
+
 
 ```bash
 pip install -r requirements.txt
@@ -35,6 +39,27 @@ Set these variables so the scripts can authenticate with external services:
 
 ## Data sources
 The automation examples reference the following public sites:
+=======
+FGPT 전략 시스템 자동화 예시 저장소입니다.  
+스크립트는 시장 데이터와 뉴스를 수집하고, 경보/리포트 파일을 이메일, Google Drive, Notion, bochungki(확장채널)로 전송/저장합니다.  
+기본 스케줄은 하루 두 차례(09:10, 23:10)이며, `schedule` 라이브러리로 자유롭게 변경할 수 있습니다.
+
+```markdown
+## 알림 채널
+- **Email**: 경보/리포트가 이메일로 전달
+- **Google Drive**: 지정 구글 드라이브에 자동 저장
+- **bochungki**: (커스텀 웹훅/슬랙/텔레그램 등 확장 가능)
+
+## Environment variables
+- `EMAIL_TO`: 이메일 알림 수신 주소 (커넥터 연결 시 불필요)
+- (필요시) `GOOGLE_CREDS_JSON`: 구글 드라이브 인증 JSON (커넥터 방식이면 불필요)
+
+## Scripts
+- `fgpt_automation.py` : 아침/야간 시장 데이터 수집/리포트 업로드
+- `caia_alert_system.py` : 센티넬/전략판단 기반 경보 감시
+- `codex_monitor.py` : 경량화 감시 루프, 다중 채널 알림
+
+## Data sources
 - Naver Finance
 - Investing.com
 - Yahoo Finance
@@ -42,27 +67,27 @@ The automation examples reference the following public sites:
 - Bloomberg
 - Yonhap News
 
-## Scheduling
-The default configuration schedules tasks with `schedule.every().day.at("09:10")` and `schedule.every().day.at("23:10")`. You can customise the run times in each script.
 
-Example usage of the alarm system:
+## Scheduling
+
+기본 실행: 매일 09:10, 23:10  
+`schedule` 라이브러리로 각 스크립트별 실행 시간 커스터마이즈 가능
+
+### Example
 ```python
 from alarm_system import send_all_alarms
-
 send_all_alarms(
     mode="night",
-    level=2,
+    level=1,
     data={"K200": -1.5, "SP500_F": -1.2, "VIX": 10.5},
-    news="[뉴스요약] 야간시장 급변 이슈 ...",
-    strategy="[전략판단] 위험관리, 헷지 추천 ...",
+    news="[뉴스요약] 야간시장 주요 이슈 ...",
+    strategy="[전략판단] 위험관리·관망 추천 ...",
     sources=[
         "https://finance.naver.com/",
         "https://www.investing.com/",
         "https://finance.yahoo.com/",
         "https://www.cmegroup.com/",
         "https://www.bloomberg.com/",
-        "https://www.yna.co.kr/",
-    ],
+        "https://www.yna.co.kr/"
+    ]
 )
-```
-
