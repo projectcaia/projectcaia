@@ -6,6 +6,7 @@ This repository contains example implementations for automated routines in the F
 
 - `fgpt_automation.py` – basic morning and night reporting.
 - `caia_alert_system.py` – market monitoring with alert levels and strategy suggestions based on the Caia framework. Alerts are pushed to Notion and email when conditions are met.
+- `codex_monitor.py` – lightweight domestic/night monitoring loop that dispatches alarms to email, Google Drive, Notion and a custom "bochungki" channel. The script will import a `codex` module if present, falling back to simple console output otherwise.
 
 ### Data sources
 
